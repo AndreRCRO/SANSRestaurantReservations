@@ -678,4 +678,76 @@ body {
         text-align: center;
         gap: 1rem;
     }
+}
+
+/* Estilos del Formulario de Registro de Restaurante */
+.register-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: var(--color-white);
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.form-title {
+    color: var(--color-dark-gray);
+    margin-bottom: 2rem;
+    text-align: center;
+    font-weight: bold;
+}
+
+.form-section {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background-color: var(--color-light-gray);
+    border-radius: 8px;
+}
+
+.form-section h4 {
+    color: var(--color-burgundy);
+    margin-bottom: 1.5rem;
+}
+
+.form-label {
+    font-weight: 500;
+    color: var(--color-dark-gray);
+}
+
+.form-control {
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.form-control:focus {
+    border-color: var(--color-burgundy);
+    box-shadow: 0 0 0 0.2rem rgba(128, 0, 32, 0.25);
+}
+
+.btn-register {
+    background-color: var(--color-burgundy);
+    color: var(--color-white);
+    padding: 0.75rem 2rem;
+    font-weight: 500;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.btn-register:hover {
+    background-color: var(--color-burgundy-light);
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    .register-container {
+        padding: 1rem;
+        margin: 1rem;
+    }
+    
+    .form-section {
+        padding: 1rem;
+    }
 } 

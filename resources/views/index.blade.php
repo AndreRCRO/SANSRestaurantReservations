@@ -31,9 +31,6 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#contact">Contacto</a>
                     </li>
-                    <li class="nav-item">
-                        <button class="btn btn-primary ms-2" data-bs-toggle="modal" data-bs-target="#registerModal">Registrarse</button>
-                    </li>
                 </ul>
             </div>
         </div>
