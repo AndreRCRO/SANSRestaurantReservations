@@ -7,8 +7,9 @@ use Illuminate\Support\Facades\Hash;
 
 class RestaurantAuthController extends Controller
 {
-    public function showLoginForm()
+    public function showLoginForm(Request $request)
     {
+        $request->session()->forget('restaurant_id');
         return view('restaurant_login');
     }
 
@@ -33,6 +34,6 @@ class RestaurantAuthController extends Controller
     public function logout(Request $request)
     {
         $request->session()->forget('restaurant_id');
-        return redirect()->route('login.restaurant.form');
+        return redirect('/');
     }
 }

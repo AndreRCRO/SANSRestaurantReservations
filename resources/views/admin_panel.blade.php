@@ -52,6 +52,12 @@
             <p class="text-muted">Bienvenido al panel de administración</p>
         </div>
         <!-- Aquí irá el contenido principal -->
+        
+        <form action="{{ route('logout.restaurant') }}" method="POST" style="display:inline;">
+            @csrf
+            <button type="submit" class="btn btn-danger">Cerrar sesión</button>
+        </form>
+        
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
