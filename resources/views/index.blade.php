@@ -355,19 +355,23 @@
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form>
+                    @if(session('error'))
+                        <div class="alert alert-danger">{{ session('error') }}</div>
+                    @endif
+                    <form action="{{ route('login.restaurant') }}" method="POST">
+                        @csrf
                         <div class="mb-4">
                             <label for="loginEmail" class="form-label">Correo Electrónico</label>
                             <div class="input-group">
                                 <span class="input-group-text"><i class="fas fa-envelope"></i></span>
-                                <input type="email" class="form-control" id="loginEmail" placeholder="ejemplo@correo.com" required>
+                                <input type="email" class="form-control" id="loginEmail" name="email" placeholder="ejemplo@correo.com" required>
                             </div>
                         </div>
                         <div class="mb-4">
                             <label for="loginPassword" class="form-label">Contraseña</label>
                             <div class="input-group">
                                 <span class="input-group-text"><i class="fas fa-lock"></i></span>
-                                <input type="password" class="form-control" id="loginPassword" placeholder="Ingresa tu contraseña" required>
+                                <input type="password" class="form-control" id="loginPassword" name="password" placeholder="Ingresa tu contraseña" required>
                             </div>
                         </div>
                         <button type="submit" class="btn btn-login">
@@ -390,4 +394,4 @@
     <script src="https://kit.fontawesome.com/your-font-awesome-kit.js" crossorigin="anonymous"></script>
     <script src="script.js"></script>
 </body>
-</html> 
+</html>

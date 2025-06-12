@@ -16,5 +16,10 @@ class Restaurant extends Model
         'email',
         'description',
         'number_tables',
+        'password',
+    ];
+
+    protected $hidden = [
+        'password',
     ];
 }
