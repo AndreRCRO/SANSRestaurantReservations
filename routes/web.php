@@ -13,3 +13,7 @@ Route::post('/register-restaurant', [RestaurantController::class, 'store'])->nam
 Route::get('/', function () {
     return view('index');
 });
+
+Route::get('/admin', function () {
+    return view('admin_panel');
+})->name('admin.panel');

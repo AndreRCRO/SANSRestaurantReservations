@@ -751,3 +751,122 @@ body {
         padding: 1rem;
     }
 } 
+
+.login-btn {
+    background: linear-gradient(45deg, var(--color-burgundy), var(--color-burgundy-light));
+    color: white !important;
+    border-radius: 25px;
+    padding: 8px 20px !important;
+    margin-left: 15px;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.login-btn:hover {
+    background: white;
+    color: var(--color-burgundy) !important;
+    border: 2px solid var(--color-burgundy);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.login-btn i {
+    font-size: 0.9em;
+}
+
+/* Estilos del Modal de Login */
+.login-modal .modal-content {
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.login-modal .modal-header {
+    background: linear-gradient(45deg, var(--color-burgundy), var(--color-burgundy-light));
+    color: white;
+    border-radius: 15px 15px 0 0;
+    border: none;
+    padding: 1.5rem;
+}
+
+.login-modal .modal-title {
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+
+.login-modal .modal-body {
+    padding: 2rem;
+}
+
+.login-modal .form-label {
+    color: var(--color-dark-gray);
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.login-modal .form-control {
+    padding: 0.8rem 1rem;
+    border: 2px solid #eee;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.login-modal .form-control:focus {
+    border-color: var(--color-burgundy);
+    box-shadow: 0 0 0 0.2rem rgba(128, 0, 32, 0.1);
+}
+
+.login-modal .btn-login {
+    background: linear-gradient(45deg, var(--color-burgundy), var(--color-burgundy-light));
+    color: white;
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: 500;
+    width: 100%;
+    margin-top: 1rem;
+    transition: all 0.3s ease;
+}
+
+.login-modal .btn-login:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(128, 0, 32, 0.2);
+}
+
+.login-modal .modal-footer {
+    border-top: none;
+    padding: 1rem 2rem 2rem;
+    text-align: center;
+}
+
+.login-modal .forgot-password {
+    color: var(--color-burgundy);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.login-modal .forgot-password:hover {
+    color: var(--color-burgundy-light);
+    text-decoration: underline;
+}
+
+.login-modal .admin-link {
+    color: var(--color-burgundy);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: rgba(128, 0, 32, 0.1);
+}
+
+.login-modal .admin-link:hover {
+    color: var(--color-burgundy-light);
+    background-color: rgba(128, 0, 32, 0.2);
+    text-decoration: none;
+}
+
+.login-modal .admin-link i {
+    font-size: 0.9em;
+}

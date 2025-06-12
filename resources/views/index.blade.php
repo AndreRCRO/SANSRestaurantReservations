@@ -31,6 +31,11 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#contact">Contacto</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link login-btn" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">
+                            <i class="fas fa-sign-in-alt me-1"></i>Ingresar
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -334,6 +339,48 @@
                         </div>
                         <button type="submit" class="btn btn-primary w-100">Registrarse</button>
                     </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Login -->
+    <div class="modal fade login-modal" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">
+                        <i class="fas fa-user-circle me-2"></i>Iniciar Sesión
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-4">
+                            <label for="loginEmail" class="form-label">Correo Electrónico</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                                <input type="email" class="form-control" id="loginEmail" placeholder="ejemplo@correo.com" required>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <label for="loginPassword" class="form-label">Contraseña</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                                <input type="password" class="form-control" id="loginPassword" placeholder="Ingresa tu contraseña" required>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-login">
+                            <i class="fas fa-sign-in-alt me-2"></i>Ingresar
+                        </button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <div class="d-flex justify-content-between w-100">
+                        <a href="{{ route('admin.panel') }}" class="admin-link">
+                            <i class="fas fa-user-shield me-1"></i>Panel Admin
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
