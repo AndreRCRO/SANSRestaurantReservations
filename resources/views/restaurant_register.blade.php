@@ -11,6 +11,15 @@
     <div class="container">
         <div class="register-container">
             <h2 class="form-title">Registro de Restaurante</h2>
+            @if($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
             <form action="{{ route('register.restaurant') }}" method="POST">
                 @csrf
                 <div class="form-section">
