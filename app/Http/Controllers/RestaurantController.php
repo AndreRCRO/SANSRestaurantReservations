@@ -26,4 +26,10 @@ class RestaurantController extends Controller
 
         return back()->with('success', 'Restaurante registrado exitosamente.');
     }
+
+    public function disponibles()
+    {
+        $restaurants = Restaurant::all();
+        return view('restaurants_list', compact('restaurants'));
+    }
 }

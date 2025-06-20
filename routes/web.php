@@ -22,4 +22,6 @@ Route::get('/restaurant/login', [RestaurantAuthController::class, 'showLoginForm
 Route::post('/restaurant/login', [RestaurantAuthController::class, 'login'])->name('login.restaurant');
 Route::post('/restaurant/logout', [RestaurantAuthController::class, 'logout'])->name('logout.restaurant');
 
+Route::get('/restaurantes-disponibles', [RestaurantController::class, 'disponibles'])->name('restaurantes.disponibles');
+
 

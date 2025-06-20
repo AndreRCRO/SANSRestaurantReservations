@@ -52,7 +52,7 @@
                     <div class="name-item">Socios</div>
                 </div>
             </div>
-            <button class="btn btn-primary btn-lg mt-4">HAZ TU RESERVA AQUÍ!!!</button>
+            <button class="btn btn-primary btn-lg mt-4" onclick="window.location.href='{{ route('restaurantes.disponibles') }}'">HAZ TU RESERVA AQUÍ!!!</button>
             <div class="mt-3">
                 <span>Registra tu restaurante </span>
                 <a href="/registrar-restaurante" class="register-link">AQUÍ</a>
@@ -378,13 +378,6 @@
                             <i class="fas fa-sign-in-alt me-2"></i>Ingresar
                         </button>
                     </form>
-                </div>
-                <div class="modal-footer">
-                    <div class="d-flex justify-content-between w-100">
-                        <a href="{{ route('admin.panel') }}" class="admin-link">
-                            <i class="fas fa-user-shield me-1"></i>Panel Admin
-                        </a>
-                    </div>
                 </div>
             </div>
         </div>
