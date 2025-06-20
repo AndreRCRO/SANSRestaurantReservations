@@ -65,6 +65,12 @@
 <body style="background:#f8f9fa;">
     <div class="container py-5">
         <h2 class="mb-4 text-center">Restaurantes Disponibles</h2>
+        @if(session('success'))
+            <div class="alert alert-success text-center">{{ session('success') }}</div>
+        @endif
+        @if(session('error'))
+            <div class="alert alert-danger text-center">{{ session('error') }}</div>
+        @endif
         <div class="row">
             @php
                 $profileImages = [
@@ -108,19 +114,21 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form>
+                    <form action="{{ route('reservar.mesa') }}" method="POST">
+                        @csrf
+                        <input type="hidden" id="reserveRestaurantName" name="restaurant_name">
                         <div class="mb-3">
                             <label for="reserveEmail" class="form-label">Correo electrónico</label>
-                            <input type="email" class="form-control" id="reserveEmail" required>
+                            <input type="email" class="form-control" id="reserveEmail" name="email" required>
                         </div>
                         <div class="mb-3">
                             <label for="reserveTables" class="form-label">Número de mesas</label>
-                            <input type="number" class="form-control" id="reserveTables" min="1" required>
+                            <input type="number" class="form-control" id="reserveTables" name="tables" min="1" required>
                             <div class="form-text">Las mesas son de 4 sillas cada una</div>
                         </div>
                         <div class="mb-3">
                             <label for="reserveDate" class="form-label">Fecha</label>
-                            <input type="date" class="form-control" id="reserveDate" required>
+                            <input type="date" class="form-control" id="reserveDate" name="date" required>
                         </div>
                         <button type="submit" class="btn btn-reservar w-100">Reservar</button>
                     </form>
@@ -137,13 +145,15 @@
             var reserveModal = document.getElementById('reserveModal');
             var modalRestaurantName = document.getElementById('modalRestaurantName');
             var cards = document.querySelectorAll('.restaurant-card');
+            var reserveRestaurantNameInput = document.getElementById('reserveRestaurantName');
             cards.forEach(function(card) {
                 card.addEventListener('click', function() {
                     var name = card.getAttribute('data-restaurant-name');
                     modalRestaurantName.textContent = name;
+                    reserveRestaurantNameInput.value = name;
                 });
             });
         });
     </script>
 </body>
-</html> 
+</html>

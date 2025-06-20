@@ -20,6 +20,8 @@ return new class extends Migration
             $table->string('password');
             $table->text('description');
             $table->integer('number_tables');
+            $table->integer('free_tables') ->default(0);
+            $table->integer('reservations_count')->default(0);
             $table->timestamps();
         });
     }

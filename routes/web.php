@@ -21,7 +21,7 @@ Route::get('/admin', [RestaurantPanelController::class, 'adminPanel'])->name('ad
 Route::get('/restaurant/login', [RestaurantAuthController::class, 'showLoginForm'])->name('login.restaurant.form');
 Route::post('/restaurant/login', [RestaurantAuthController::class, 'login'])->name('login.restaurant');
 Route::post('/restaurant/logout', [RestaurantAuthController::class, 'logout'])->name('logout.restaurant');
-
+Route::post('/reservar-mesa', [RestaurantController::class, 'reservarMesa'])->name('reservar.mesa');
 Route::get('/restaurantes-disponibles', [RestaurantController::class, 'disponibles'])->name('restaurantes.disponibles');
 
 

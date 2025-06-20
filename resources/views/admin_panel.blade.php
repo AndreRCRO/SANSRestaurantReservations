@@ -43,20 +43,26 @@
             <div class="row mb-4">
                 <div class="col-md-4">
                     <div style="background:#fff;border-radius:1.2rem;box-shadow:0 2px 12px rgba(220,53,69,0.10);padding:2rem;text-align:center;">
-                        <div style="font-size:2.2rem;color:#dc3545;font-weight:700;">0</div>
+                        <div style="font-size:2.2rem;color:#dc3545;font-weight:700;">
+                            {{ $restaurant->reservations_count ?? 0 }}
+                        </div>
                         <div style="font-size:1.1rem;color:#888;">Mesas reservadas</div>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div style="background:#fff;border-radius:1.2rem;box-shadow:0 2px 12px rgba(220,53,69,0.10);padding:2rem;text-align:center;">
-                        <div style="font-size:2.2rem;color:#dc3545;font-weight:700;">0</div>
-                        <div style="font-size:1.1rem;color:#888;">Clientes</div>
+                        <div style="font-size:2.2rem;color:#dc3545;font-weight:700;">
+                            {{ $restaurant->free_tables ?? 0 }}
+                        </div>
+                        <div style="font-size:1.1rem;color:#888;">Mesas libres</div>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div style="background:#fff;border-radius:1.2rem;box-shadow:0 2px 12px rgba(220,53,69,0.10);padding:2rem;text-align:center;">
-                        <div style="font-size:2.2rem;color:#dc3545;font-weight:700;">0</div>
-                        <div style="font-size:1.1rem;color:#888;">Reservas activas</div>
+                        <div style="font-size:2.2rem;color:#dc3545;font-weight:700;">
+                            {{ $restaurant->number_tables ?? 0 }}
+                        </div>
+                        <div style="font-size:1.1rem;color:#888;">Mesas totales</div>
                     </div>
                 </div>
             </div>

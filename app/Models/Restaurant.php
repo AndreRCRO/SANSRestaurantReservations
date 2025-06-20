@@ -17,6 +17,8 @@ class Restaurant extends Model
         'description',
         'number_tables',
         'password',
+        'free_tables',
+        'reservations_count',
     ];
 
     protected $hidden = [

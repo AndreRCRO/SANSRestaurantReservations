@@ -21,15 +21,47 @@ class RestaurantController extends Controller
         ]);
 
         $validated['password'] = Hash::make($validated['password']);
+        $validated['free_tables'] = $validated['number_tables']; // <--- Aquí igualas
 
         Restaurant::create($validated);
 
-        return back()->with('success', 'Restaurante registrado exitosamente.');
+        return redirect('/')->with('success', 'Restaurante registrado exitosamente.');
     }
 
     public function disponibles()
     {
         $restaurants = Restaurant::all();
         return view('restaurants_list', compact('restaurants'));
+    }
+
+
+    public function reservarMesa(Request $request)
+    {
+        $validated = $request->validate([
+            'restaurant_name' => 'required|string',
+            'email' => 'required|email',
+            'tables' => 'required|integer|min:1',
+            'date' => 'required|date',
+        ]);
+
+        $restaurant = Restaurant::where('name', $validated['restaurant_name'])->first();
+
+        if (!$restaurant) {
+            return back()->with('error', 'Restaurante no encontrado.');
+        }
+
+        // Verifica si hay suficientes mesas libres
+        if ($restaurant->free_tables < $validated['tables']) {
+            return back()->with('error', 'No hay suficientes mesas libres.');
+        }
+
+        // Actualiza las mesas libres y reservadas
+        $restaurant->free_tables -= $validated['tables'];
+        $restaurant->reservations_count += $validated['tables'];
+        $restaurant->save();
+
+        // Aquí podrías guardar la reserva en otra tabla si lo deseas
+
+        return back()->with('success', '¡Reserva realizada con éxito!');
     }
 }
