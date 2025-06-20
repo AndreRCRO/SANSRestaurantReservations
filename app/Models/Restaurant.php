@@ -24,4 +24,9 @@ class Restaurant extends Model
     protected $hidden = [
         'password',
     ];
+
+    public function reservations()
+    {
+        return $this->hasMany(Reservation::class);
+    }
 }

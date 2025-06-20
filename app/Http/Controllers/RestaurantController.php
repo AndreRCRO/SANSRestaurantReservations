@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Restaurant;
 use Illuminate\Support\Facades\Hash;
+use App\Models\Reservation;
 
 class RestaurantController extends Controller
 {
@@ -42,6 +43,7 @@ class RestaurantController extends Controller
             'email' => 'required|email',
             'tables' => 'required|integer|min:1',
             'date' => 'required|date',
+            'time' => 'required',
         ]);
 
         $restaurant = Restaurant::where('name', $validated['restaurant_name'])->first();
@@ -60,7 +62,14 @@ class RestaurantController extends Controller
         $restaurant->reservations_count += $validated['tables'];
         $restaurant->save();
 
-        // Aquí podrías guardar la reserva en otra tabla si lo deseas
+        Reservation::create([
+            'restaurant_id' => $restaurant->id,
+            'customer_name' => $request->input('customer_name'), // si lo pides en el formulario
+            'email' => $validated['email'],
+            'tables' => $validated['tables'],
+            'date' => $validated['date'],
+            'time' => $validated['time'],
+        ]);
 
         return back()->with('success', '¡Reserva realizada con éxito!');
     }

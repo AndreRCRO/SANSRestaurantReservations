@@ -14,10 +14,10 @@ class RestaurantPanelController extends Controller
             return redirect()->route('login.restaurant.form');
         }
 
-        // Obtén el restaurante autenticado
-        $restaurant = Restaurant::find($request->session()->get('restaurant_id'));
+        // Obtén el restaurante autenticado con sus reservas
+        $restaurant = Restaurant::with('reservations')->find($request->session()->get('restaurant_id'));
 
-        // Pasa el restaurante a la vista
+        // Pasa el restaurante (con reservas) a la vista
         return view('admin_panel', compact('restaurant'));
     }
 }

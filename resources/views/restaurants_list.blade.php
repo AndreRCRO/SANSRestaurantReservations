@@ -130,6 +130,10 @@
                             <label for="reserveDate" class="form-label">Fecha</label>
                             <input type="date" class="form-control" id="reserveDate" name="date" required>
                         </div>
+                        <div class="mb-3">
+                            <label for="reserveTime" class="form-label">Hora</label>
+                            <input type="time" class="form-control" id="reserveTime" name="time" required>
+                        </div>
                         <button type="submit" class="btn btn-reservar w-100">Reservar</button>
                     </form>
                 </div>

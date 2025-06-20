@@ -89,17 +89,28 @@
             </div>
         </div>
         <div id="reservaciones-section" style="display:none;">
-            <div class="row">
-                <div class="col-md-6 col-lg-4 mb-4">
-                    <div style="background:#fff;border-radius:1.2rem;box-shadow:0 2px 12px rgba(220,53,69,0.10);padding:2rem;">
-                        <div style="font-weight:700;color:#dc3545;font-size:1.2rem;">Juan Pérez</div>
-                        <div style="color:#888;">Correo: juan@email.com</div>
-                        <div style="color:#888;">Mesas reservadas: 2</div>
-                        <div style="color:#888;">Clientes: 8</div>
-                        <div style="color:#888;">Fecha: 2024-06-15</div>
+        <div class="row">
+            @if(isset($restaurant) && $restaurant->reservations->count())
+                @foreach($restaurant->reservations as $reservation)
+                    <div class="col-md-6 col-lg-4 mb-4">
+                        <div style="background:#fff;border-radius:1.2rem;box-shadow:0 2px 12px rgba(220,53,69,0.10);padding:2rem;">
+                            <div style="font-weight:700;color:#dc3545;font-size:1.2rem;">
+                                {{ $reservation->customer_name ?? 'Sin nombre' }}
+                            </div>
+                            <div style="color:#888;">Correo: {{ $reservation->email }}</div>
+                            <div style="color:#888;">Mesas reservadas: {{ $reservation->tables }}</div>
+                            <div style="color:#888;">Fecha: {{ $reservation->date }}</div>
+                            <div style="color:#888;">Hora: {{ $reservation->time }}</div>
+                        </div>
                     </div>
+                @endforeach
+            @else
+                <div class="col-12">
+                    <div class="alert alert-info text-center">No hay reservaciones registradas.</div>
                 </div>
+            @endif
         </div>
+    </div>
         <script>
             // Navegación visual entre secciones
             document.addEventListener('DOMContentLoaded', function() {
